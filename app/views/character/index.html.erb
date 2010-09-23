@@ -1,0 +1,9 @@
+<h1>I want to integrate my catgirl in to ENTERPRISE SOFTWARE!</h1>
+<p>well ok just pop your character id in and you can have some json. powered by <a href='http://github.com/OwlManAtt/FFXIV-Lodestone-API'>ffxiv-lodestone</a>.</p>
+<p>for real usage, have your application http get <strong>http://api.freesexxycatgirls.com/character/details/1015990.json</strong>, where 1015990 is the character id you can <a href='http://lodestone.finalfantasyxiv.com/rc/character/status?cicuid=1015990'>find on lodestone</a>. it will send your trendy web2.0 bullshit with the right content-type and stuff.</p>
+<p><strong><%= image_tag 'siren.gif' -%>COMING SOON<%= image_tag 'siren.gif' -%></strong> shove a character name in the url and get json out! unfortunately this depends on the lodestone character search actually working. welp!</p>
+
+<% form_tag '/character/profile/', :method => :get do %>
+  <%= text_field_tag :id %>
+  <%= submit_tag 'ok express my catgirl as json', :name => nil %>
+<% end %>
