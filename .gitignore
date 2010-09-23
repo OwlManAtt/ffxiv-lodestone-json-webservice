@@ -1,0 +1,5 @@
+log/*.log
+tmp/**/*
+tmp/restart.txt
+doc/api
+doc/app
