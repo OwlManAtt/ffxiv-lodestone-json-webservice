@@ -1,6 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'character'
 
+  map.connect 'character/profile/id/:id', :controller => 'character', :action => 'profile', :type => :by_id
+  map.connect 'character/profile/id/:id.:format', :controller => 'character', :action => 'profile', :type => :by_id
+
+  map.connect 'character/profile/name/:world/:name', :controller => 'character', :action => 'profile', :type => :by_name
+  map.connect 'character/profile/name/:world/:name.:format', :controller => 'character', :action => 'profile', :type => :by_name
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

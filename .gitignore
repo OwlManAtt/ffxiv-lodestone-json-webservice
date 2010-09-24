@@ -3,3 +3,4 @@ tmp/**/*
 tmp/restart.txt
 doc/api
 doc/app
+public/index.html

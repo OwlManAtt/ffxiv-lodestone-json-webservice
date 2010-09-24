@@ -1,9 +1,42 @@
 <h1>I want to integrate my catgirl in to ENTERPRISE SOFTWARE!</h1>
-<p>well ok just pop your character id in and you can have some json. powered by <a href='http://github.com/OwlManAtt/FFXIV-Lodestone-API'>ffxiv-lodestone</a>.</p>
-<p>for real usage, have your application http get <strong>http://api.freesexxycatgirls.com/character/details/1015990.json</strong>, where 1015990 is the character id you can <a href='http://lodestone.finalfantasyxiv.com/rc/character/status?cicuid=1015990'>find on lodestone</a>. it will send your trendy web2.0 bullshit with the right content-type and stuff.</p>
-<p><strong><%= image_tag 'siren.gif' -%>COMING SOON<%= image_tag 'siren.gif' -%></strong> shove a character name in the url and get json out! unfortunately this depends on the lodestone character search actually working. welp!</p>
+<p>well, ok. pop your name in and you can have some json.</p>
 
-<% form_tag '/character/profile/', :method => :get do %>
-  <%= text_field_tag :id %>
-  <%= submit_tag 'ok express my catgirl as json', :name => nil %>
-<% end %>
+<p>powered by <a href='http://github.com/OwlManAtt/FFXIV-Lodestone-API'>ffxiv-lodestone</a>. this webservice is intended for non-ruby programmers; if you are using ruby, type this and go away:</p>
+
+<pre>
+  $ gem install ffxiv-lodestone
+</pre>
+
+<!--
+ok DONE!
+
+<p><strong><%= image_tag 'siren.gif' -%>ANNOUNCEMENT<%= image_tag 'siren.gif' -%></strong> HOLD ON TO YOUR HATS KIDS; THE (FREE) SEXXY CATGIRL API IS BEING UPDATED TO USE FFXIV-LODESTONE-0.9.0! EXCUSE ME IF THIS DOESN'T WORK FOR THE NEXT HOUR!</p> -->
+
+<div id='news'>
+  <h2>news</h2>
+  <p><span class='dateline'>2010-09-24:</span> characters can now be searched by world/name. errors are now jsonified. the catgirls are still free. sorry about the whole url changing completely. i won't do it again!</p>
+</div>
+
+<div id='documentation'>
+  <h2>documentation</h2>
+  <p>you can get data with an http get. the url you want to hit will be one of these, depending on what you wish to search by:</p>
+    <ul>
+      <li>http://api.freesexxycatgirls.com/character/profile/name/<span class='arg'>WORLD NAME</span>/<span class='arg'>CHAR NAME</span>.json (and please make sure you are encoding the space in the character name)</li>
+      <li>http://api.freesexxycatgirls.com/character/profile/id/<span class='arg'>ID</span>.json</li>
+    </ul>
+
+  <p>the id number can be found in your <a href='http://lodestone.finalfantasyxiv.com/rc/character/status?cicuid=1015990'>lodestone profile's url</a>. you can also get it from the 'character_id' field in the json i give you - if you are going to update a character regularly, you really ought to only search by name the first time, store the character id, and make subsequent requests by id instead of name.</p>
+  <p>you can change the .json to .html if you want human-readable (but programatically useless) json for some stupid reason. you could use the html version and pretend it's SECURE JSON&trade; like crunchyroll does, but that's fucking stupid so please don't do that.</p>
+  <p>if there is a problem, you will get an http 404 or 500 response. please, be sure to check the http response code before you do anything with the data. there will also be an error structure thing:</p>
+  <pre>
+    {"error":"Invalid character specified (or Lodestone is down)."}
+  </pre>
+
+  <p><strong><%= image_tag 'siren.gif' -%>CAVEAT<%= image_tag 'siren.gif' -%></strong> lodestone does not add new characters to the search index for about a day. if you are searching for a character by name and you're getting an invalid character error, go see if you can search the name. if not, you will have to request your json with the character id.</p>
+</div>
+
+<div id='catgirl'>
+  <h2>have a catgirl</h2>
+  <p>they're free, after all.</p>
+  <img src='http://freesexxycatgirls.com/image/79dec22bf0a04658aa1740b25a247ef0.jpg' alt='one free catgirl' border='0' />
+</div>
